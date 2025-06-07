@@ -1,32 +1,51 @@
-<!-- In <head> -->
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;700&display=swap" rel="stylesheet">
-<style>
-  body {
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-    background: #fdfdfd;
-    color: #333;
-  }
-
-  .hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    color: white;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-
-  .hero p {
-    font-size: 1.3rem;
-  }
-</style>
-
-<!-- In <body> -->
-<section class="hero">
-  <h1>MelCoCreative</h1>
-  <p>Digital Art & Creative Expression</p>
-</section>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MelCoCreative | Online Portfolio</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <img src="assets/logo.png" alt="MelCoCreative Logo" class="logo" />
+    <h1>MelCoCreative</h1>
+    <p>Online Portfolio</p>
+    <a href="#about" class="scroll-down">▼</a>
+  </header>  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Hello! I’m the creative mind behind MelCoCreative, a digital artist and designer passionate about storytelling through visuals and words. Welcome to my portfolio!</p>
+  </section>  <section class="section portfolio">
+    <h2>Portfolio</h2>
+    <div class="categories">
+      <button class="filter-btn" data-category="book">Book Design</button>
+      <button class="filter-btn" data-category="poster">Posters</button>
+      <button class="filter-btn" data-category="template">Templates</button>
+      <button class="filter-btn" data-category="story">Short Story / Poetry</button>
+      <button class="filter-btn" data-category="comic">Comic Panels</button>
+    </div>
+    <div class="gallery">
+      <!-- Example item -->
+      <div class="gallery-item" data-category="poster">
+        <img src="assets/images/art1.jpg" alt="Poster Design" />
+        <p>Poster: Experimental Typography</p>
+      </div>
+      <!-- Add your real artworks here with matching categories -->
+    </div>
+  </section>  <footer>
+    <p>&copy; 2025 MelCoCreative</p>
+    <p>Follow on <a href="#">Instagram</a> | <a href="#">Contact</a></p>
+  </footer>  <script>
+    // Filter portfolio items
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+        items.forEach(item => {
+          item.style.display = item.dataset.category === category || category === 'all' ? 'block' : 'none';
+        });
+      });
+    });
+  </script></body>
+</html>
