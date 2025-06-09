@@ -90,4 +90,72 @@
           <p>Minimalist Presentation Slide</p>
         </div>
         </div>
-    </section
+    </section>
+
+    <section id="digital-art" class="section portfolio-section">
+      <h2>Digital Art</h2>
+      <div class="gallery digital-gallery">
+        <div class="gallery-item" data-category="digital">
+          <img src="assets/images/digital1.jpg" alt="Digital Landscape Painting" />
+          <p>Crimson Skies: Digital Painting</p>
+        </div>
+        <div class="gallery-item" data-category="digital">
+          <img src="assets/images/digital2.jpg" alt="Character Design Digital" />
+          <p>Ember, Character Concept Art</p>
+        </div>
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MelCoCreative</p>
+    <p>Follow on <a href="https://instagram.com/your_instagram_handle" target="_blank">Instagram</a> | <a href="mailto:your_email@example.com">Contact</a></p>
+  </footer>
+
+  <script>
+    // JavaScript for smooth scrolling when clicking navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            // Add active class to the clicked nav link
+            this.classList.add('active');
+        });
+    });
+
+    // Intersection Observer for highlighting nav links based on scroll position
+    const sections = document.querySelectorAll('.portfolio-section, .about-me'); // Include all sections you want to highlight in the nav
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.id;
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(currentId)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.3 }); // Adjust threshold: how much of the section needs to be visible to be considered 'active'
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // The previous filtering JavaScript using data-category buttons is removed
+    // because the main navigation now directly links to distinct sections.
+    // If you wish to re-implement filtering *within* a section, we can discuss that.
+  </script>
+</body>
+</html>
