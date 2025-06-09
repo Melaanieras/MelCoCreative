@@ -20,11 +20,11 @@
       </div>
       <nav class="main-nav">
         <ul>
-          <li><a href="#comic-panels" class="nav-link" data-target="comic">Comic Panels</a></li>
-          <li><a href="#book-covers" class="nav-link" data-target="book">Book Covers</a></li>
-          <li><a href="#short-story-poems" class="nav-link" data-target="story">Short Story/Poems</a></li>
-          <li><a href="#templates" class="nav-link" data-target="template">Templates</a></li>
-          <li><a href="#digital-art" class="nav-link" data-target="digital">Digital Art</a></li>
+          <li><a href="#comic-panels" class="nav-link">Comic Panels</a></li>
+          <li><a href="#book-covers" class="nav-link">Book Covers</a></li>
+          <li><a href="#short-story-poems" class="nav-link">Short Story/Poems</a></li>
+          <li><a href="#templates" class="nav-link">Templates</a></li>
+          <li><a href="#digital-art" class="nav-link">Digital Art</a></li>
         </ul>
       </nav>
     </div>
@@ -90,98 +90,4 @@
           <p>Minimalist Presentation Slide</p>
         </div>
         </div>
-    </section>
-
-    <section id="digital-art" class="section portfolio-section">
-      <h2>Digital Art</h2>
-      <div class="gallery digital-gallery">
-        <div class="gallery-item" data-category="digital">
-          <img src="assets/images/digital1.jpg" alt="Digital Landscape Painting" />
-          <p>Crimson Skies: Digital Painting</p>
-        </div>
-        <div class="gallery-item" data-category="digital">
-          <img src="assets/images/digital2.jpg" alt="Character Design Digital" />
-          <p>Ember, Character Concept Art</p>
-        </div>
-        </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 MelCoCreative</p>
-    <p>Follow on <a href="https://instagram.com/your_instagram_handle" target="_blank">Instagram</a> | <a href="mailto:your_email@example.com">Contact</a></p>
-  </footer>
-
-  <script>
-    // JavaScript for smooth scrolling and active nav link highlighting
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-
-            // Remove active class from all links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            // Add active class to the clicked link
-            this.classList.add('active');
-        });
-    });
-
-    // Intersection Observer for highlighting nav links based on scroll position
-    const sections = document.querySelectorAll('.portfolio-section, .about-me'); // Include all sections you want to highlight
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const currentId = entry.target.id;
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(currentId)) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, { threshold: 0.3 }); // Adjust threshold as needed
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    // Original filter functionality (if you still want filter buttons)
-    // You might want to combine this with the section-based navigation
-    // or remove the filter buttons if the sections are enough.
-    // I've commented this out as the primary navigation now handles categories by section.
-    // If you want both, let me know, and we can make them work together.
-
-    /*
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const category = btn.dataset.category;
-
-        // Remove active class from all buttons
-        filterButtons.forEach(b => b.classList.remove('active-filter'));
-        // Add active class to the clicked button
-        btn.classList.add('active-filter');
-
-        galleryItems.forEach(item => {
-          if (category === 'all' || item.dataset.category === category) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-    */
-  </script>
-</body>
-</html>
+    </section
