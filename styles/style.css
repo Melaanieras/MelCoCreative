@@ -63,4 +63,179 @@ body {
 }
 
 .main-nav ul {
-  list
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow navigation items to wrap */
+  gap: 1.5rem; /* Space between navigation items */
+}
+
+.main-nav a {
+  color: #a3d9ff; /* Lighter blue for nav links */
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.2rem;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text wrapping inside buttons */
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  /* 'active' class for current section */
+  color: #2e5177; /* Darker blue text on hover/active */
+  background-color: #f4aab9; /* Accent pink background on hover/active */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* --- Sections --- */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.section:last-of-type {
+  border-bottom: none; /* No border for the last section */
+}
+
+/* All headings except the main branding h1 are now white */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+}
+
+/* Override for the main site branding h1 to keep its original color */
+.site-branding h1 {
+  color: #f4aab9;
+}
+
+.section h2 {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.about-me p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Portfolio Gallery Styles --- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  background-color: #2e5177; /* Darker blue for item background */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  display: block; /* Remove extra space below image */
+}
+
+.gallery-item p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff; /* Changed to white from #a3d9ff */
+  margin: 0;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #2e5177;
+  color: #a3d9ff;
+  text-align: center;
+  padding: 2.5rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+}
+
+footer a {
+  color: #f4aab9;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #a3d9ff;
+  text-decoration: underline;
+}
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) {
+  .header-content {
+    flex-direction: row; /* Align items horizontally on larger screens */
+    justify-content: space-between;
+  }
+
+  .logo-and-title {
+    margin-bottom: 0;
+  }
+
+  .main-nav {
+    width: auto; /* Allow nav to take only necessary width */
+  }
+
+  .main-nav ul {
+    gap: 1.5rem; /* Adjust gap for wider screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .logo {
+    width: 60px; /* Smaller logo on small screens */
+    margin-right: 10px;
+  }
+
+  .site-branding h1 {
+    font-size: 2rem;
+  }
+
+  .site-branding .tagline {
+    font-size: 1rem;
+  }
+
+  .main-nav a {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .section h2 {
+    font-size: 2.2rem;
+  }
+}
